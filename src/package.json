@@ -1,0 +1,16 @@
+{
+  "name": "pictures",
+  "version": "1.0.0",
+  "main": "index.js",
+ 
+
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "parcel": "^2.13.3"
+  }
+}
+
+
