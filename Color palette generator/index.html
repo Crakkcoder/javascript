@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Palette Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+    .container {
+      text-align: center;
+    }
+    .palette {
+      display: flex;
+      justify-content: center;
+      margin-top: 20px;
+    }
+    .color-box {
+      width: 80px;
+      height: 80px;
+      margin: 5px;
+      border-radius: 5px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #333;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+    button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Color Palette Generator</h1>
+    <button onclick="generatePalette()">Generate Palette</button>
+    <div class="palette" id="palette"></div>
+  </div>
+
+  <script>
+    // Function to generate a random color
+    function getRandomColor() {
+      const letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+    // Function to generate and display a color palette
+    function generatePalette() {
+      const paletteContainer = document.getElementById('palette');
+      paletteContainer.innerHTML = ''; // Clear the existing palette
+
+      const numberOfColors = 5; // Number of colors in the palette
+      for (let i = 0; i < numberOfColors; i++) {
+        const colorBox = document.createElement('div');
+        colorBox.classList.add('color-box');
+        colorBox.style.backgroundColor = getRandomColor();
+        paletteContainer.appendChild(colorBox);
+      }
+    }
+
+  </script>
+
+</body>
+</html>
