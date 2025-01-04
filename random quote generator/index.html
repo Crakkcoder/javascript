@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Quote Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        #quote {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div id="quote">Click the button to get a random quote!</div>
+        <button onclick="generateQuote()">New Quote</button>
+    </div>
+
+    <script>
+        // Array of quotes
+        const quotes = [
+            "The only way to do great work is to love what you do. - Steve Jobs",
+            "Life is what happens when you're busy making other plans. - John Lennon",
+            "In the end, we will remember not the words of our enemies, but the silence of our friends. - Martin Luther King Jr.",
+            "The journey of a thousand miles begins with one step. - Lao Tzu",
+            "To be yourself in a world that is constantly trying to make you something else is the greatest accomplishment. - Ralph Waldo Emerson",
+            "Success is not final, failure is not fatal: It is the courage to continue that counts. - Winston Churchill",
+            "Believe you can and you're halfway there. - Theodore Roosevelt",
+            "It always seems impossible until it’s done. - Nelson Mandela",
+            "Don’t watch the clock; do what it does. Keep going. - Sam Levenson",
+            "The best way to predict the future is to invent it. - Alan Kay"
+        ];
+
+        // Function to generate a random quote
+        function generateQuote() {
+            const randomIndex = Math.floor(Math.random() * quotes.length);
+            document.getElementById('quote').textContent = quotes[randomIndex];
+        }
+    </script>
+
+</body>
+</html>
