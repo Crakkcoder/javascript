@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Data Export and Import</title>
+</head>
+<body>
+  <h1>Data Export and Import Example</h1>
+
+  <!-- Export Data Buttons -->
+  <button onclick="exportData()">Export JSON Data</button>
+  <button onclick="exportCSV()">Export CSV Data</button>
+
+  <br><br>
+
+  <!-- Import Data Section -->
+  <input type="file" id="file-input" />
+  <button onclick="importData()">Import Data</button>
+
+  <pre id="result"></pre>
+
+  <script>
+    // Export JSON data
+    function exportData() {
+      window.location.href = '/export';
+    }
+
+    // Export CSV data
+    function exportCSV() {
+      window.location.href = '/export-csv';
+    }
+
+    // Import Data
+    function importData() {
+      const fileInput = document.getElementById('file-input');
+      const file = fileInput.files[0];
+
+      if (file) {
+        const formData = new FormData();
+        formData.append('file', file);
+
+        fetch('/import', {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('result').textContent = JSON.stringify(data, null, 2);
+        })
+        .catch(error => {
+          document.getElementById('result').textContent = 'Error importing data: ' + error;
+        });
+      }
+    }
+  </script>
+</body>
+</html>
